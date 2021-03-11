@@ -1,38 +1,59 @@
+.bg {
+  background-image: url("Background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: unset;
+  font-size: calc(20px + 2vmin);
+  color: black;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.container {
+  background: #f9f8dd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.messages {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.message.from-me {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+.message.from-me .message-body {
+  background-color: #af9570;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.message {
+  margin-bottom: 20px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.message-body {
+  max-width: 80%;
+  display: inline-block;
+  padding: 20px;
+  background-color: #eee;
+  border: 1px;
+  border-radius: 5px;
+  padding-right: 50px;
 }
