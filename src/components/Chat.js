@@ -26,7 +26,11 @@ function Chat(props) {
 
   return (
     <Container>
-      <Form.Control size="sm" as="select" onChange={setLang}>
+      <Form.Control
+        size="sm"
+        as="select"
+        onChange={(e) => setLang(e.target.value)}
+      >
         <option>Select a Language</option>
         <option value="en">English</option>
         <option value="fr">French</option>
