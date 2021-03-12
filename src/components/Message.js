@@ -1,23 +1,20 @@
 import React from "react";
 
 function Message(props) {
-  let fromMe;
-  if (props.side === "left") {
-    fromMe = props.fromMe ? "from-me" : "";
+  let from;
+  if (props.side === "left" && props.from === "L") {
+    from = "from-me";
+  } else if (props.side === "right" && props.from === "R") {
+    from = "from-me";
   } else {
-    fromMe = props.fromMe ? "" : "from-me";
+    from = "";
   }
 
   return (
-    <div className={`message ${fromMe}`}>
+    <div className={`message ${from}`}>
       <div className="message-body">{props.message}</div>
     </div>
   );
 }
-
-Message.defaultProps = {
-  message: "",
-  fromMe: false,
-};
 
 export default Message;

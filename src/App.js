@@ -9,8 +9,29 @@ function App() {
 
   useEffect(() => {}, [messages]);
 
+  const sendHandlerL = (message) => {
+    const messageObject = {
+      message,
+    };
+    messageObject.from = "L";
+    addMessage(messageObject);
+  };
+
+  const sendHandlerR = (message) => {
+    const messageObject = {
+      message,
+    };
+    messageObject.from = "R";
+    addMessage(messageObject);
+  };
+
   const addMessage = (message) => {
-    setMessages({ message });
+    const newMessages = [];
+    messages.forEach((element) => {
+      newMessages.push(element);
+    });
+    newMessages.push(message);
+    setMessages(newMessages);
   };
 
   return (
@@ -19,10 +40,10 @@ function App() {
         <header className="App-header">GatorCom</header>
         <Row>
           <Col>
-            <Chat messages={messages} addMessage={addMessage} side="left" />
+            <Chat messages={messages} onSend={sendHandlerL} side="left" />
           </Col>
           <Col>
-            <Chat messages={messages} addMessage={addMessage} side="" />
+            <Chat messages={messages} onSend={sendHandlerR} side="right" />
           </Col>
         </Row>
       </div>
